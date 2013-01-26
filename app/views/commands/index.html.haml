@@ -1,0 +1,23 @@
+%h1 Listing commands
+
+%table
+  %tr
+    %th Command
+    %th Description
+    %th Private
+    %th
+    %th
+    %th
+
+  - @commands.each do |command|
+    %tr
+      %td= command.command
+      %td= command.description
+      %td= command.private
+      %td= link_to 'Show', command
+      %td= link_to 'Edit', edit_command_path(command)
+      %td= link_to 'Destroy', command, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Command', new_command_path
